@@ -1,0 +1,1 @@
+select policy_id,policy_term,premium_paying_term from {{ref('stg_customers')}}

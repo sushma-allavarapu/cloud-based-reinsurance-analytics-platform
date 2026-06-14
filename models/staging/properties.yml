@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_customers
+
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+
+      - name: policy_id
+        tests:
+          - not_null
+
+      - name: benefit_id
+        tests:
+          - not_null
+
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['MALE','FEMALE','OTHERS','UNKNOWN']
+
+      - name: smoker
+        tests:
+          - accepted_values:
+              values: ['Yes','No']
+
+  - name: stg_premiums
+
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+
+      - name: policy_id
+        tests:
+          - not_null
+
+      - name: benefit_id
+        tests:
+          - not_null
+
+  - name: stg_claims
+
+    columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
+
+      - name: claim_status
+        tests:
+          - accepted_values:
+              values: ['APPROVED','REJECTED']

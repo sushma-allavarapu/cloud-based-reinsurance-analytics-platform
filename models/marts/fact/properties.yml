@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: fact_reinsurance
+
+    columns:
+
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
+
+      - name: policy_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_policy')
+              field: policy_id
+
+      - name: benefit_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_benefit')
+              field: benefit_id
+
+      - name: insurance_company_id
+        tests:
+          - relationships:
+              to: ref('dim_insurance_company')
+              field: insurance_company_id
+
+      - name: reinsurance_company_id
+        tests:
+          - relationships:
+              to: ref('dim_reinsurance_company')
+              field: reinsurance_company_id

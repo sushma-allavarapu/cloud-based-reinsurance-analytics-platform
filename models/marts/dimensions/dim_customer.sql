@@ -1,0 +1,1 @@
+select distinct customer_id,customer_name,gender,smoker,age from {{ ref('stg_customers')}}

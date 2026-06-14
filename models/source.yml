@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw reinsurance data ingested from AWS S3 into Snowflake.
+    database: INSURANCE_DB
+    schema: RAW
+
+    tables:
+      - name: customers
+        description: Customer policy enrollment and demographic information.
+
+      - name: premiums
+        description: Reinsurance premium rates and retention amounts for policies.
+
+      - name: claims
+        description: Claims submitted against insurance policies.
+
+      - name: insurance_company
+        description: Master table containing insurance company details.
+
+      - name: reinsurance_company
+        description: Master table containing reinsurance company details.
+
+      - name: policy_benefit_master
+        description: Master table containing benefit plans and policy coverage information.
+
+      - name: calculated_metrics
+        description: Business-calculated metrics including SAR, Sum Ced, and Reinsurance Amount.
